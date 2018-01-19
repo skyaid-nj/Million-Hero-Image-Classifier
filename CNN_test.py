@@ -27,13 +27,13 @@ class model_test:
         return standardization_tensor
 
 
-    def run_one_image(self, path):
+    def run_one_image(self, image_path):
         '''
         给定本地的图片文件的路径，识别
         :param path:
         :return:
         '''
-        image = self.sess.run(self.read_image_from_local(path))
+        image = self.sess.run(self.read_image_from_local(image_path))
         [y_out_prob, y_out_label] = self.sess.run([self.y_out_prob, self.y_out_label], feed_dict = {self.x : image, self.keep_prob: 1})
         return y_out_label
 

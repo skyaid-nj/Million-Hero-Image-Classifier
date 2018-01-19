@@ -15,9 +15,12 @@ RUN \
   ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
   curl https://phuslu.github.io/bashrc >/root/.bashrc
 
-RUN \
-    cp ./requirements.txt /opt/image_classifier/ && \
-    pip install -r requirements.txt
+COPY . /opt/image_classifier/
 
+RUN \
+    pip install -r /opt/image_classifier/requirements.txt
+
+RUN \
+    export LC_ALL=C
 
 WORKDIR /opt/image_classifier/
