@@ -3,13 +3,21 @@
 ## image build:
 docker build -t tensorflow-py3-flask-env .
 
-## container:
-docker run -it -v ~/shadow/image_classifier:/opt/image_classifier -p 5400:5400 -p 5401:6006 tensorflow-py3-flask-env bash
+## container run:
+docker run -it -v ~/shadow/image_classifier:/opt/image_classifier -p 5000:5000 -p 6006:6006 tensorflow-py3-flask-env bash
 
-## run:
+## procedure run:
+### model:
 * python3 CNN_train.py
-* python3 app.py
+* python3 CNN_test.py
 
-## visualization
-tensorboard --logdir='./logs' --host=0.0.0.1
-打开浏览器输入：http:127.0.0.1/5401
+### server:
+* python3 app.py
+server运行成功，就可以以http协议，form-data的形式发送图片给server。server返回识别信息。
+terminal command:
+* cd [image-dir]
+* curl -F "raw_image=@[image-file-path]" http://localhost:5000/image_classifier_one_image
+
+## tensorboard visualization
+tensorboard --logdir='./logs' --host=0.0.0.0
+打开浏览器输入：http:127.0.0.1:6006
