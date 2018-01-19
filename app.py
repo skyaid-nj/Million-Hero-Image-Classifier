@@ -18,6 +18,11 @@ def index():
     save_path = os.path.join(os.path.dirname(__file__), 'saved_image_path', image_file.filename)
     image_file.save(save_path)
     label = predictor.run_one_image(save_path)
+    res = result_wrapper(label)
+    return jsonify(res)
+
+
+def result_wrapper(label):
     res = {}
     res['ret_status'] = 'success'
     res['ret_data'] = {}
@@ -26,11 +31,12 @@ def index():
         res['ret_data']['label_discription'] = 'It is not target image, not answer page'
     else:
         res['ret_data']['label_discription'] = 'It is target image, answer page'
-    print(res)
-    return jsonify(res)
+    return res
+
 
 def main(host = "0.0.0.0", port = 5000):
     app.run(host= host, port= port)
+
 
 if __name__== "__main__":
     fire.Fire()
