@@ -1,5 +1,9 @@
 # Million-Hero-Image-Classifier
 
+## clone repo
+git clone https://adc.github.trendmicro.com/Consumer-SkyAid/Million-Hero-Image-Classifier.git
+cd Million-Hero-Image-Classifier/
+
 ## image build:
 docker build -t tensorflow-py3-flask-env .
 

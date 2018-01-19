@@ -17,7 +17,7 @@ RUN \
 
 RUN \
     cp ./requirements.txt /opt/image_classifier/
-    pip3 install -r requirements.txt
+    pip install -r requirements.txt
 
 
 WORKDIR /opt/image_classifier/
