@@ -16,11 +16,8 @@ RUN \
   curl https://phuslu.github.io/bashrc >/root/.bashrc
 
 RUN \
-    pip3 install \
-        tensorflow \
-        flask \
-        Pillow \
-        matplotlib \
-        requests
+    cp ./requirements.txt /opt/image_classifier/
+    pip3 install -r requirements.txt
+
 
 WORKDIR /opt/image_classifier/

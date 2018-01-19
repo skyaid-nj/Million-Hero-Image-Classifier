@@ -3,7 +3,6 @@ from flask import Flask
 from CNN_test import model_test
 from flask import request
 import os
-import json
 from flask import jsonify
 app = Flask(__name__)
 predictor = model_test()
