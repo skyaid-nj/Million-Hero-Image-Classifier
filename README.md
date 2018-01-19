@@ -1,7 +1,7 @@
 # Million-Hero-Image-Classifier
 
 ## clone repo
-git clone https://adc.github.trendmicro.com/Consumer-SkyAid/Million-Hero-Image-Classifier.git
+git clone https://adc.github.trendmicro.com/Consumer-SkyAid/Million-Hero-Image-Classifier.git <br>
 cd Million-Hero-Image-Classifier/
 
 ## image build:
@@ -28,7 +28,7 @@ eg: python3 CNN_test.py run_on_dir --dir_path=./test_data/finish_answer/
 * python3 app.py main --host=127.0.0.0 --port=5000 <br>
 server运行成功，就可以以http协议，form-data的形式发送图片给server。server返回识别信息。
 
-####terminal command:
+#### terminal command:
 * cd [image-dir]
 * curl -F "raw_image=@[image-file-path]" http://localhost:5000/image_classifier_one_image
 
