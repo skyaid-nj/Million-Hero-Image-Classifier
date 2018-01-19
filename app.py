@@ -4,6 +4,7 @@ from CNN_test import model_test
 from flask import request
 import os
 from flask import jsonify
+import fire
 app = Flask(__name__)
 predictor = model_test()
 
@@ -28,6 +29,8 @@ def index():
     print(res)
     return jsonify(res)
 
+def main(host = "0.0.0.0", port = 5000):
+    app.run(host= host, port= port)
 
 if __name__== "__main__":
-    app.run(host = "0.0.0.0", port = 5000)
+    fire.Fire()

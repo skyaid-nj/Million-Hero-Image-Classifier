@@ -1,8 +1,9 @@
+# coding:utf-8
 import tensorflow as tf
 from CNN_model import model_cnn
 import os
 from Data_Prepare import Data_Prepare
-
+import fire
 
 class model_test:
 
@@ -27,12 +28,21 @@ class model_test:
 
 
     def run_one_image(self, path):
-
+        '''
+        给定本地的图片文件的路径，识别
+        :param path:
+        :return:
+        '''
         image = self.sess.run(self.read_image_from_local(path))
         [y_out_prob, y_out_label] = self.sess.run([self.y_out_prob, self.y_out_label], feed_dict = {self.x : image, self.keep_prob: 1})
         return y_out_label
 
     def run_on_dir(self, dir_path):
+        '''
+        给定一个目录，识别下面的图片文件
+        :param dir_path:
+        :return:
+        '''
         res_list = []
         for file_name in os.listdir(dir_path):
             cur_file_path = os.path.join(dir_path, file_name)
@@ -41,6 +51,16 @@ class model_test:
         print(res_list)
 
 if __name__ == '__main__':
+    fire.Fire(model_test)
+
+    '''
+    cur_dir_path = os.path.dirname(__file__)
     test_obj = model_test()
-    path = r'D:\test_image\cur\positive'
+    print("===================== test on image path:==============================")
+    path = os.path.join(cur_dir_path, 'finish_answer', 'screenshot_1516021508.82.png')
+    test_obj.run_one_image(path)
+    print('\n'*2)
+    print("===================== test on image dir:==============================")
+    path = os.path.join(cur_dir_path, 'finish_answer')
     test_obj.run_on_dir(path)
+    '''

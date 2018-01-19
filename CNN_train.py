@@ -3,6 +3,7 @@ import tensorflow as tf
 from CNN_model import model_cnn
 from Data_Prepare import Data_Prepare
 import os
+import fire
 
 cur_dir_path = os.path.dirname(__file__)
 
@@ -13,13 +14,17 @@ class model_train:
         self.model_prepare = model_cnn()
 
 
-    def train_main(self):
-
+    def train_main(self, log_dir_name):
+        '''
+        训练cnn模型
+        :param log_dir_name: 本地运行保存summary的目录名
+        :return:
+        '''
         iter_num = 1000
         batch_size = 32
         capacity = 500
         min_after_dequeue = 499
-        logs_path = os.path.join(cur_dir_path, 'logs/')
+        logs_path = os.path.join(cur_dir_path, 'logs/', log_dir_name)
 
         x = tf.placeholder(tf.float32, shape=[None, 28, 28, 3])
         y = tf.placeholder(tf.float32, shape=[None, 2])
@@ -60,5 +65,4 @@ class model_train:
 
 
 if __name__ == '__main__':
-    train_obj = model_train()
-    train_obj.train_main()
+    fire.Fire(model_train)
