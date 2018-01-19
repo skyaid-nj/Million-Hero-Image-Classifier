@@ -16,7 +16,7 @@ RUN \
   curl https://phuslu.github.io/bashrc >/root/.bashrc
 
 RUN \
-    cp ./requirements.txt /opt/image_classifier/
+    cp ./requirements.txt /opt/image_classifier/ && \
     pip install -r requirements.txt
 
 
