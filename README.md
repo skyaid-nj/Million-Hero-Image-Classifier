@@ -1,9 +1,16 @@
 # Million-Hero-Image-Classifier
 
 ## 若只想调用api，已开放有http api, 目前只支持png格式
-curl -F "raw_image=@[image_path]" http://111.231.132.34:5000/image_classifier_one_image <br>
-eg: 你要上传的图片为'/opt/image/123.png', <br>
-curl -F "raw_image=@/opt/image/123.png" http://111.231.132.34:5000/image_classifier_one_image
+参考的python代码如下：
+```
+import requests
+
+image_path = '/home/ubuntu/tensorflow_flask_server/test_data/positive/screenshot_1516018333.56.png'
+files = {'raw_image': open(image_path, 'rb')}
+r = requests.post("http://111.231.132.34:5000/image_classifier_one_image", files=files)
+
+print(r.text)
+```
 
 ## clone repo
 git clone https://adc.github.trendmicro.com/Consumer-SkyAid/Million-Hero-Image-Classifier.git <br>
