@@ -1,5 +1,10 @@
 # Million-Hero-Image-Classifier
 
+## 若只想调用api，已开放有http api, 目前只支持png格式
+curl -F "raw_image=@[image_path]" http://111.231.132.34:5000/image_classifier_one_image <br>
+eg: 你要上传的图片为'/opt/image/123.png', <br>
+curl -F "raw_image=@/opt/image/123.png" http://111.231.132.34:5000/image_classifier_one_image
+
 ## clone repo
 git clone https://adc.github.trendmicro.com/Consumer-SkyAid/Million-Hero-Image-Classifier.git <br>
 cd Million-Hero-Image-Classifier/
