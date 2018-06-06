@@ -13,7 +13,7 @@ print(r.text)
 ```
 
 ## clone repo
-git clone https://adc.github.trendmicro.com/Consumer-SkyAid/Million-Hero-Image-Classifier.git <br>
+git clone https://github.com/skyaid-nj/Million-Hero-Image-Classifier.git <br>
 cd Million-Hero-Image-Classifier/
 
 ## image build:
